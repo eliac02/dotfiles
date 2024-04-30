@@ -44,4 +44,5 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 bash ~/.config/i3/scripts/update_hdmi_env.sh
+bash ~/.config/i3/scripts/keyboard.sh
 export PSQL_EDITOR="/usr/bin/nvim"

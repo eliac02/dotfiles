@@ -8,8 +8,6 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-alias i3conf='nvim ~/.config/i3/config'
-alias i3statusconf='sudo nvim ~/.config/i3status/conf'
 alias kbdit='setxkbmap it'
 alias kbdus='setxkbmap us'
 alias dark='xrandr --output eDP --brightness 0.5'

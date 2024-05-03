@@ -7,11 +7,6 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-alias kbdit='setxkbmap it'
-alias kbdus='setxkbmap us'
-alias dark='xrandr --output eDP --brightness 0.5'
-alias light='xrandr --output eDP --brightness 1'
 alias connecteduroam='nmcli con add type wifi con-name "eduroam" ifname wlan0 ssid "eduroam" wifi-sec.key-mgmt wpa-eap 802-1x.identity "elia.cortesi@studenti.unimi.it" 802-1x.password "B4CLVAMY" 802-1x.system-ca-certs yes 802-1x.eap "peap" 802-1x.phase2-auth mschapv2'
 alias areyouhappy='echo "yes daddy! UwU"'
 alias cred='cat ~/openvpn/credentials.auth'
@@ -41,6 +36,5 @@ export PS1="\[\033[1m\]\[\033[38;2;137;180;250m\][\u@\h \W]\$ \[\033[0m\]"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
-bash ~/.config/i3/scripts/update_hdmi_env.sh
-bash ~/.config/i3/scripts/keyboard.sh
+bash ~/.dotfiles/hypr/.config/hypr/scripts/set_alacritty_font_size.sh
 export PSQL_EDITOR="/usr/bin/nvim"

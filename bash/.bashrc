@@ -36,5 +36,4 @@ export PS1="\[\033[1m\]\[\033[38;2;137;180;250m\][\u@\h \W]\$ \[\033[0m\]"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
-bash ~/.dotfiles/hypr/.config/hypr/scripts/set_alacritty_font_size.sh
 export PSQL_EDITOR="/usr/bin/nvim"

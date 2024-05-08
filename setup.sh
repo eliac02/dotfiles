@@ -2,13 +2,6 @@
 #
 # This script is used to setup a good part of my system
 
-
-HOME="/home/elia"
-MAIL="eliacortesi278@gmail.com"
-NAME="eliacortesi"
-DOTFILES="git@github.com:eliac02/dotfiles.git"
-PASSPHRASE_SSH=
-
 sudo pacman -Syu --needed --noconfirm \
     git\
     github-cli\
@@ -16,7 +9,24 @@ sudo pacman -Syu --needed --noconfirm \
     base-devel\
     samba\
     bitwarden-cli\
-    stow
+    stow\
+    expect
+
+bw login
+bw unlock
+bw sync
+
+HOME="/home/elia"
+echo "Retrieving email..."
+MAIL=$(bw get note email)
+NAME="eliacortesi"
+DOTFILES="git@github.com:eliac02/dotfiles.git"
+echo "Retrieving SSH passphrase..."
+PASSPHRASE_SSH=$(bw get note SSH)
+echo "Retrieving new Github token..."
+TOKEN_GH=$(bw get note token)
+
+bw lock
 
 echo "Generating ssh key in order to clone repo from Github..."
 cd ~
@@ -24,19 +34,41 @@ mkdir .ssh
 ssh-keygen -t ed25519 -C $MAIL -f $HOME/.ssh/id_ed25519 -N $PASSPHRASE_SSH
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+echo "Ssh key generated."
 
+echo "Adding ssh key into github account..."
 gh auth login --with-token $TOKEN_GH
 gh ssh-key add $HOME/.ssh/id_ed25519.pub --type authentication --title "arch-elia"
+echo "Ssh added to github account."
 
+echo "Cloning dotfies from github..."
 cd ~
 mkdir .dotfiles
 cd .dotfiles
 git init
 git config user.email $MAIL
 git config user.name $NAME
-git clone $DOTFILES
+spawn git clone $DOTFILES
+expect "Enter passphrase"
+send $PASSPHRASE_SSH
+expect eof
+echo "Dotfiles retrieved."
 
-#stow
+echo "Using stow to spread dotfiles..."
+cd ~/.dotfiles
+rm ~/.config/i3 && stow i3
+stow -t /etc/ i3status
+stow nvim
+stow rofi
+rm ~/.bashrc && stow bash && . ~/.bashrc
+stow dunst
+rm ~/.config/\`Bitwarden CLI\`/ && stow bwcli
+echo "Dotfiles installed."
+
+echo "Adding multilib support in pacman..."
+sudo sed -i '89s/#//' /etc/pacman.conf
+sudo sed -i '90s/#//' /etc/pacman.conf
+echo "Multilib added."
 
 echo "Updating system and installing programs..."
 sudo pacman -Syu --needed --noconfirm \
@@ -82,6 +114,8 @@ sudo pacman -Syu --needed --noconfirm \
     xorg-xev\
 	zip\
 
+echo "Packages installed."
+
 echo "Installing yay"
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -90,14 +124,24 @@ cd ..
 rm -rf yay
 echo "Yay installed."
 
+echo "Installing yay packages..."
 yay -Syu --needed --no-confirm \
     drawio-desktop\
     pokemmo\
     fastfetch\
     joplin-desktop
 
+echo "Packages installed."
+
 echo "Installing catppuccin theme for sddm login manager..."
 cd ~/.dotfiles/theme/sddm/
 sudo unzip catppuccin-mocha.zip -d /usr/share/sddm/themes/
 sudo mv sddm.conf /etc/
+echo "Theme installed."
 
+echo "Installing catppuccin theme for grub..."
+cd ~/.dotfiles/theme/grub
+sudo cp -r catppuccin-mocha-grub-theme /usr/share/grub/themes/
+sudo sed '47cGRUB_THEME="/usr/share/grub/themes/catppuccin-mocha-grub-theme/theme.txt"' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+echo "Theme installed."

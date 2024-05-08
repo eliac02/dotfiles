@@ -38,5 +38,4 @@ export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 bash ~/.dotfiles/i3/.config/i3/scripts/keyboard.sh
 bash ~/.dotfiles/i3/.config/i3/scripts/update_hdmi_env.sh
-# bash ~/.dotfiles/hypr/.config/hypr/scripts/set_alacritty_font_size.sh
 export PSQL_EDITOR="/usr/bin/nvim"

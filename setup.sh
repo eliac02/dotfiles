@@ -2,25 +2,41 @@
 #
 # This script is used to setup a good part of my system
 
-mail="eliacortei278@gmail.com"
-name="eliacortesi"
-dotfiles="git@github.com:eliac02/dotfiles.git"
+
+HOME="/home/elia"
+MAIL="eliacortesi278@gmail.com"
+NAME="eliacortesi"
+DOTFILES="git@github.com:eliac02/dotfiles.git"
+PASSPHRASE_SSH=
 
 sudo pacman -Syu --needed --noconfirm \
     git\
-    base-devel\
+    github-cli\
     openssh\
-    stow\
+    base-devel\
+    samba\
+    bitwarden-cli\
+    stow
 
-ssh-keygen -t ed25519 -C $mail
+echo "Generating ssh key in order to clone repo from Github..."
+cd ~
+mkdir .ssh
+ssh-keygen -t ed25519 -C $MAIL -f $HOME/.ssh/id_ed25519 -N $PASSPHRASE_SSH
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+gh auth login --with-token $TOKEN_GH
+gh ssh-key add $HOME/.ssh/id_ed25519.pub --type authentication --title "arch-elia"
 
 cd ~
 mkdir .dotfiles
 cd .dotfiles
 git init
-git config user.email $email
-git config user.name $name
-git clone $dotfiles
+git config user.email $MAIL
+git config user.name $NAME
+git clone $DOTFILES
+
+#stow
 
 echo "Updating system and installing programs..."
 sudo pacman -Syu --needed --noconfirm \
@@ -72,9 +88,16 @@ cd yay
 makepkg -si
 cd ..
 rm -rf yay
-echo "Yay installed"
+echo "Yay installed."
 
 yay -Syu --needed --no-confirm \
     drawio-desktop\
     pokemmo\
-    fastfetch
+    fastfetch\
+    joplin-desktop
+
+echo "Installing catppuccin theme for sddm login manager..."
+cd ~/.dotfiles/theme/sddm/
+sudo unzip catppuccin-mocha.zip -d /usr/share/sddm/themes/
+sudo mv sddm.conf /etc/
+

@@ -11,8 +11,18 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls",
-                    "gopls",
+                    "lua_ls", --Lua
+                    "gopls", -- Golang
+                    "pyright", -- Python
+                    "jdtls", -- Java
+                    "sqlls", -- SQL
+                    "html", -- HTML
+                    "cssls", -- CSS
+                    "bashls", -- Bash
+                    "arduino_language_server", -- Arduino, C, C++, C#
+                    "jsonls", -- JSON
+                    "intelephense", -- PHP
+                    "tsserver", -- JavaScript
                 },
             })
         end,

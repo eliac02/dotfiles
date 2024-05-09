@@ -9,6 +9,24 @@ return {
                 null_ls.builtins.formatting.stylua,
                 -- prettier is for JS, JSX, TS, HTML, CSS, JSON, MarkDown, YAML
                 null_ls.builtins.formatting.prettier,
+                -- black is for Python
+                null_ls.builtins.formatting.black,
+                -- isort is for Python import statements
+                null_ls.builtins.formatting.isort,
+                -- gofumpt is for Go
+                null_ls.builtins.formatting.gofumpt,
+                -- goimports is for go import statements
+                null_ls.builtins.formatting.goimports,
+                -- google_java_format is for Java
+                null_ls.builtins.formatting.google_java_format,
+                -- shfmt is for Bash
+                null_ls.builtins.formatting.shfmt,
+                -- sqlfmt is for SQL
+                null_ls.builtins.formatting.sqlfmt,
+                -- astyle is for C, C++, C#, Java, Arduino
+                null_ls.builtins.formatting.astyle,
+                -- phpcbf is for PHP
+                null_ls.builtins.formatting.phpcbf,
             },
         })
 

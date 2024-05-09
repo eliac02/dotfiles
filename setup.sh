@@ -15,7 +15,7 @@ get_api_key() {
         exit 1
     fi
 
-    KEY=
+    KEY= # PROBLEMA: da finire ma non mi piace molto come soluzione!
 }
 
 sudo pacman -Syu --needed --noconfirm \
@@ -31,7 +31,7 @@ sudo pacman -Syu --needed --noconfirm \
 spawn bw login
 expect "API"
 API_KEY_BW=get_api_key()
-send $API_KEY_BW
+send $API_KEY_BW # PROBLEMA: non funziona!
 bw unlock
 bw sync
 
@@ -44,6 +44,8 @@ echo "Retrieving SSH passphrase..."
 PASSPHRASE_SSH=$(bw get note SSH)
 echo "Retrieving new Github token..."
 TOKEN_GH=$(bw get note token)
+IP_NAS=$(bw get note ip_nas)
+PW_NAS=$(bw get password NAS)
 
 bw lock
 
@@ -84,6 +86,7 @@ rm ~/.bashrc && stow bash && . ~/.bashrc
 stow dunst
 rm ~/.config/\`Bitwarden CLI\`/ && stow bwcli
 sudo stow -t /etc/X11/xorg-conf-d/ amdgpu
+stow starship
 echo "Dotfiles installed."
 
 echo "Adding multilib support in pacman..."
@@ -166,5 +169,22 @@ sudo cp -r catppuccin-mocha-grub-theme /usr/share/grub/themes/
 sudo sed '47cGRUB_THEME="/usr/share/grub/themes/catppuccin-mocha-grub-theme/theme.txt"' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 echo "Theme installed."
+
+echo "Installing Python and Pip..."
+sudo pacman -Syu python-pip
+PYTHON_VERSION=$(python --version 2>&1 | grep -oE '[0-9]+\.[0-9]+')
+PYTHON_DIR="/usr/lib/python$PYTHON_VERSION"
+sudo sudo mv $PYTHON_DIR/EXTERNALLY-MANAGED $PYTHON_DIR/EXTERNALLY-MANAGED.old
+pip install shandy-sqlfmt[jinjafmt]
+echo "Python and Pip Installed."
+
+echo "Adding network drive entry in /etc/fstab..."
+cd ~ && touch .smbcredentials && chmod 600 .smbcredentials
+echo "username=$NAME" >> .smbcredentials
+echo "password=$PW_NAS" >> .smbcredentials
+echo "domain=WORKGROUP"
+ENTRY="//$IP_NAS/$NAME /mnt/nas/ cifs credentials=/home/elia/.smbcredentials,rw,_netdev,noauto,uid=1000,gid=1000,iocharset=utf8 0 0"
+sudo echo "$ENTRY" >> /etc/fstab # PROBLEMA: >> non funziona neanche con sudo!
+sudo systemctl daemon-reload
 
 sudo reboot now

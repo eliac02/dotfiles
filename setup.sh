@@ -2,6 +2,22 @@
 #
 # This script is used to setup a good part of my system
 
+get_api_key() {
+    while [! -d "/run/media/$USER"]; do
+        echo "Inserisci la USB-KEY..."
+        read -p "Premi ENTER una volta inserita."
+    done
+
+    cd "/run/media/$USER" || exit
+
+    if [! -f "api_key_client_secret.cred"]; then
+        echo "File chiave non trovato."
+        exit 1
+    fi
+
+    KEY=
+}
+
 sudo pacman -Syu --needed --noconfirm \
     git\
     github-cli\
@@ -12,7 +28,10 @@ sudo pacman -Syu --needed --noconfirm \
     stow\
     expect
 
-bw login
+spawn bw login
+expect "API"
+API_KEY_BW=get_api_key()
+send $API_KEY_BW
 bw unlock
 bw sync
 
@@ -48,7 +67,7 @@ cd .dotfiles
 git init
 git config user.email $MAIL
 git config user.name $NAME
-spawn git clone $DOTFILES
+spawn git pull origin master
 expect "Enter passphrase"
 send $PASSPHRASE_SSH
 expect eof
@@ -136,7 +155,7 @@ echo "Packages installed."
 echo "Installing catppuccin theme for sddm login manager..."
 cd ~/.dotfiles/theme/sddm/
 sudo unzip catppuccin-mocha.zip -d /usr/share/sddm/themes/
-sudo mv sddm.conf /etc/
+sudo cp sddm.conf /etc/
 echo "Theme installed."
 
 echo "Installing catppuccin theme for grub..."
@@ -145,3 +164,5 @@ sudo cp -r catppuccin-mocha-grub-theme /usr/share/grub/themes/
 sudo sed '47cGRUB_THEME="/usr/share/grub/themes/catppuccin-mocha-grub-theme/theme.txt"' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 echo "Theme installed."
+
+sudo reboot now

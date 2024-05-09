@@ -76,12 +76,14 @@ echo "Dotfiles retrieved."
 echo "Using stow to spread dotfiles..."
 cd ~/.dotfiles
 rm ~/.config/i3 && stow i3
-stow -t /etc/ i3status
+sudo stow -t /etc/ i3status
+stow alacritty
 stow nvim
 stow rofi
 rm ~/.bashrc && stow bash && . ~/.bashrc
 stow dunst
 rm ~/.config/\`Bitwarden CLI\`/ && stow bwcli
+sudo stow -t /etc/X11/xorg-conf-d/ amdgpu
 echo "Dotfiles installed."
 
 echo "Adding multilib support in pacman..."

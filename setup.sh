@@ -83,7 +83,7 @@ stow alacritty
 stow nvim
 stow rofi
 rm ~/.bashrc && stow bash && . ~/.bashrc
-stow dunst
+sudo stow -t /etc/dunst/ dunst/
 rm ~/.config/\`Bitwarden CLI\`/ && stow bwcli
 sudo stow -t /etc/X11/xorg-conf-d/ amdgpu
 stow starship
@@ -100,23 +100,28 @@ sudo pacman -Syu --needed --noconfirm \
     amd-ucode\
     base\
     base-devel\
+    bitwarden-cli\
     cifs-utils\
 	curl\
 	docker\
+    expect\
     feh\
     firefox\
 	flameshot\
 	gimp\
     git\
+    github-cli\
 	gradle\
 	grep\
     htop\
 	imagemagick\
+    jdk17-openjdk\
     lua\
     luarocks\
 	mpv\
     neovim\
 	networkmanager\
+    nodejs\
     npm\
 	okular\
     openssh\
@@ -126,13 +131,16 @@ sudo pacman -Syu --needed --noconfirm \
     rofi\
 	rsync\
 	samba\
+    stow\
 	scrot\
     starship\
 	steam\
     stow\
 	tar\
 	telegram-desktop\
+    udisks2\
 	unzip\
+    virtualbox\
 	wget\
 	wine\
     xorg-xev\

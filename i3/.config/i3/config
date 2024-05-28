@@ -215,7 +215,7 @@ bar {
 }
 #custom keybinds made by elia
 bindsym $mod+Shift+f exec firefox
-bindsym Ctrl+Shift+Escape exec xterm -e htop
+bindsym Ctrl+Shift+Escape exec alacritty -e htop
 exec --no-startup-id feh --bg-scale /home/elia/Pictures/wallpapers/sfondo.png
 
 set $i3lockwall sh ~/.config/i3/scripts/lock.sh

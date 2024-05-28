@@ -12,6 +12,7 @@ alias areyouhappy='echo "yes daddy! UwU"'
 alias cred='cat ~/openvpn/credentials.auth'
 alias jn='jupyter notebook'
 alias mars='java -jar ~/uni/archi2/Mars4_5.jar'
+alias dir='echo "This is not Windows, u bigol"'
 
 # vpn aliases
 alias zurigoon='nmcli con up id "Zurigo - Svizzera"'

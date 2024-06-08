@@ -36,7 +36,6 @@ eval "$(starship init bash)"
 export PS1="\[\033[1m\]\[\033[38;2;137;180;250m\][\u@\h \W]\$ \[\033[0m\]"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/.local/bin
 bash ~/.dotfiles/i3/.config/i3/scripts/keyboard.sh
 bash ~/.dotfiles/i3/.config/i3/scripts/update_hdmi_env.sh
 export PSQL_EDITOR="/usr/bin/nvim"

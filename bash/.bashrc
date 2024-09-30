@@ -39,3 +39,4 @@ export PATH=$PATH:/usr/local/go/bin
 bash ~/.dotfiles/i3/.config/i3/scripts/keyboard.sh
 bash ~/.dotfiles/i3/.config/i3/scripts/update_hdmi_env.sh
 export PSQL_EDITOR="/usr/bin/nvim"
+export PATH=$PATH:~/.local/bin

@@ -19,10 +19,12 @@ return {
                     "html", -- HTML
                     "cssls", -- CSS
                     "bashls", -- Bash
-                    "arduino_language_server", -- Arduino, C, C++, C#
+                    "arduino_language_server", -- Arduino, ( male quasi niente C, C++, C#)
                     "jsonls", -- JSON
                     "intelephense", -- PHP
-                    "tsserver", -- JavaScript
+                    "ts_ls", -- JavaScript
+                    --"ast_grep", -- Dart
+                    "clangd", -- C
                 },
             })
         end,

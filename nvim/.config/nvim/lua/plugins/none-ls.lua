@@ -27,6 +27,10 @@ return {
                 null_ls.builtins.formatting.astyle,
                 -- phpcbf is for PHP
                 null_ls.builtins.formatting.phpcbf,
+                --dart_format is for Dart
+                --null_ls.builtins.formatting.dart_format,
+                -- clang_format is for C, C++, and family
+                null_ls.builtins.formatting.clang_format,
             },
         })
 

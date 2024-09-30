@@ -4,7 +4,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
     },
     --{
-      --  "github/copilot.vim",
+        --"github/copilot.vim",
     --},
     {
         "L3MON4D3/LuaSnip",
@@ -37,7 +37,7 @@ return {
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = cmp.config.sources({
-                    --{name = "copilot"},
+                    --{ name = "copilot" },
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                 }, {

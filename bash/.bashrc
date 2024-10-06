@@ -13,6 +13,8 @@ alias cred='cat ~/openvpn/credentials.auth'
 alias jn='jupyter notebook'
 alias mars='java -jar ~/uni/archi2/Mars4_5.jar'
 alias dir='echo "This is not Windows, u bigol"'
+alias dark='xrandr --output eDP --brightness 0.5'
+alias light='xrandr --output eDP --brightness 1'
 
 # vpn aliases
 alias zurigoon='nmcli con up id "Zurigo - Svizzera"'

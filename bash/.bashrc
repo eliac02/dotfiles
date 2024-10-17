@@ -15,6 +15,7 @@ alias mars='java -jar ~/uni/archi2/Mars4_5.jar'
 alias dir='echo "This is not Windows, u bigol"'
 alias dark='xrandr --output eDP --brightness 0.5'
 alias light='xrandr --output eDP --brightness 1'
+alias sshpwn='ssh -i ~/.ssh/pwncollege hacker@pwncollege-sep2025.laser.di.unimi.it'
 
 # vpn aliases
 alias zurigoon='nmcli con up id "Zurigo - Svizzera"'

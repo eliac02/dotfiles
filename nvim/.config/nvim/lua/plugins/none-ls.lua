@@ -31,6 +31,8 @@ return {
                 --null_ls.builtins.formatting.dart_format,
                 -- clang_format is for C, C++, and family
                 null_ls.builtins.formatting.clang_format,
+                -- asmfmt is for Assembly
+                null_ls.builtins.formatting.asmfmt,
             },
         })
 

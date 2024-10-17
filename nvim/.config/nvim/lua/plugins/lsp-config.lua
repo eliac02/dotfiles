@@ -25,6 +25,7 @@ return {
                     "ts_ls", -- JavaScript
                     --"ast_grep", -- Dart
                     "clangd", -- C
+                    "asm_lsp", --Assembly
                 },
             })
         end,

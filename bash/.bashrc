@@ -16,6 +16,7 @@ alias dir='echo "This is not Windows, u bigol"'
 alias dark='xrandr --output eDP --brightness 0.5'
 alias light='xrandr --output eDP --brightness 1'
 alias sshpwn='ssh -i ~/.ssh/pwncollege hacker@pwncollege-sep2025.laser.di.unimi.it'
+alias gcc='gcc -fpermissive'
 
 # vpn aliases
 alias zurigoon='nmcli con up id "Zurigo - Svizzera"'

@@ -26,6 +26,8 @@ return {
                     --"ast_grep", -- Dart
                     "clangd", -- C
                     "asm_lsp", --Assembly
+                    "elp", --Erlang
+                    "ocamllsp", --OCaml
                 },
             })
         end,

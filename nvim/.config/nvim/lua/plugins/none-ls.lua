@@ -33,6 +33,12 @@ return {
                 null_ls.builtins.formatting.clang_format,
                 -- asmfmt is for Assembly
                 null_ls.builtins.formatting.asmfmt,
+                -- erlfmt is for Erlang
+                null_ls.builtins.formatting.erlfmt,
+                -- ocamlformat is for OCaml
+                null_ls.builtins.formatting.ocamlformat,
+                -- scalafmt is for Scala
+                null_ls.builtins.formatting.scalafmt,
             },
         })
 

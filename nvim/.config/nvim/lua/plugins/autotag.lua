@@ -1,3 +1,4 @@
+-- this plugin completes html tags and can rename
 return{
   "windwp/nvim-ts-autotag",
   config = function ()

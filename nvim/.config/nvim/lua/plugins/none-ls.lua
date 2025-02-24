@@ -11,14 +11,12 @@ return {
                 null_ls.builtins.formatting.prettier.with({
                     filetypes = {"html", "css", "json", "yaml", "markdown" },
                 }),
-                null_ls.builtins.diagnostics.markdownlint,
                 -- black is for Python
                 null_ls.builtins.formatting.black,
                 -- isort is for Python import statements
                 null_ls.builtins.formatting.isort,
                 -- gofmt is for Go
                 null_ls.builtins.formatting.gofmt,
-                null_ls.builtins.diagnostics.golangci_lint,
                 -- goimports is for go import statements
                 null_ls.builtins.formatting.goimports,
                 -- google_java_format is for Java
@@ -31,7 +29,6 @@ return {
                 null_ls.builtins.formatting.phpcsfixer,
                 -- phpcbf is for fixing PHP code violations 
                 null_ls.builtins.formatting.phpcbf,
-                null_ls.builtins.diagnostics.phpstan,
                 --dart_format is for Dart
                 --null_ls.builtins.formatting.dart_format,
                 -- clang_format is for C, C++, and family

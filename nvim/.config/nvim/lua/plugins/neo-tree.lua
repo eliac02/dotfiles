@@ -8,7 +8,6 @@ return {
             "MunifTanjim/nui.nvim",
         },
         config = function()
-            vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
             require("neo-tree").setup({
                 event_handlers = {
                     {

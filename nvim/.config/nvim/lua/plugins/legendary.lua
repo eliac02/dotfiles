@@ -139,7 +139,7 @@ return {
 				},
 				{
 					itemgroup = "MiniMove",
-					description = "MiniMove keymaps",
+					description = "Move lines/selections",
 					icon = "",
 					keymaps = {
 						{

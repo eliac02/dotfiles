@@ -17,6 +17,14 @@ return {
                         end,
                     },
                 },
+                enable_git_status = true,
+                -- default_components_config = {
+                --     git_status = {
+                --         symbols = {
+                --
+                --         },
+                --     },
+                -- },
             })
         end,
     },

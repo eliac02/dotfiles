@@ -211,7 +211,7 @@ bar {
     }
 }
 #custom keybinds made by elia
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec zen-browser
 bindsym Ctrl+Shift+Escape exec alacritty -e htop
 exec --no-startup-id feh --bg-scale /home/elia/Pictures/wallpapers/sfondo.png
 

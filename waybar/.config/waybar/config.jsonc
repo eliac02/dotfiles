@@ -138,7 +138,8 @@
             "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
             "tooltip-format-ethernet": "  {ifname}",
             "tooltip-format-disconnected": "Disconnected",
-            "on-click": "nmcli radio wifi | grep -q \"enabled\" && nmcli radio wifi off || nmcli radio wifi on"
+            "on-click-right": "nmcli radio wifi | grep -q \"enabled\" && nmcli radio wifi off || nmcli radio wifi on",
+            "on-click": "nm-connection-editor"
         },
         "temperature": {
             "critical-threshold": 80,
@@ -165,7 +166,7 @@
         },
         "disk": {
             "interval": 1,
-            "format": " {specific_free:0.2f} GB/{specific_total:0.2f} GB",
+            "format": " {specific_used:0.2f} GB/{specific_total:0.2f} GB",
             "unit": "GB"
         }
     }

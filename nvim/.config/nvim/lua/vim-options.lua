@@ -22,3 +22,4 @@ vim.keymap.set("v", "<Left>", "<Nop>")
 vim.keymap.set("v", "<Right>", "<Nop>")
 
 vim.opt.termguicolors = true
+

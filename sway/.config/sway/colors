@@ -1,0 +1,5 @@
+set $white #ffffff
+set $black #000000
+set $less_black #1e1b1b
+set $red #ae0d00
+set $green #15ae00

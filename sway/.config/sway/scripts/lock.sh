@@ -8,7 +8,7 @@ SCREENSHOT_PATH="$TEMP_DIR/screenshot.png"
 grim $SCREENSHOT_PATH
 
 # Applica il blur all'immagine (puoi cambiare l'intensità)
-convert $SCREENSHOT_PATH -blur 0x2 $SCREENSHOT_PATH
+convert $SCREENSHOT_PATH -blur 0x8 $SCREENSHOT_PATH
 
 # Imposta lo screenshot come sfondo (così da avere lo stesso effetto come screensaver)
 swaymsg output * bg $SCREENSHOT_PATH fill

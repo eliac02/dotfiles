@@ -10,20 +10,20 @@ if [ -z "$EXTERNAL_SCREEN" ]; then
 fi
 
 # Menu con wofi
-entries="󰌽  Laptop\n󰌘  Entrambi\n󰍹  Monitor"
+entries="󰍹 Monitor\n󰌘 Entrambi\n󰌽 Laptop"
 selected=$(echo -e $entries|wofi --dmenu -i -s ~/.dotfiles/wofi/.config/wofi/style.css| awk '{print tolower($2)}')
 
 case $selected in
-    laptop)
-        swaymsg output "$LAPTOP_SCREEN" enable
-        swaymsg output "$EXTERNAL_SCREEN" disable
+    monitor)
+        swaymsg output "$LAPTOP_SCREEN" disable
+        swaymsg output "$EXTERNAL_SCREEN" enable position 0 0
         ;;
     entrambi)
         swaymsg output "$LAPTOP_SCREEN" enable position 0 0
         swaymsg output "$EXTERNAL_SCREEN" enable position 1920 0
         ;;
-    monitor)
-        swaymsg output "$LAPTOP_SCREEN" disable
-        swaymsg output "$EXTERNAL_SCREEN" enable position 0 0
+    laptop)
+        swaymsg output "$LAPTOP_SCREEN" enable
+        swaymsg output "$EXTERNAL_SCREEN" disable
         ;;
 esac

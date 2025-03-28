@@ -20,3 +20,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PSQL_EDITOR="/usr/bin/nvim"
 export PATH=$PATH:~/.local/bin
+
+export WINE_VK_USE_FSR=1
+export WINE_FULLSCREEN_FSR=1
+export WINE_VK_USE_WAYLAND=1

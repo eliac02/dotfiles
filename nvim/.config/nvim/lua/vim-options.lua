@@ -23,3 +23,4 @@ vim.keymap.set("v", "<Right>", "<Nop>")
 
 vim.opt.termguicolors = true
 
+vim.opt.conceallevel = 1

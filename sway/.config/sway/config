@@ -95,6 +95,9 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 # Layout stuff:
 
+default_orientation vertical
+for_window [app_id=".*"] split toggle
+
 bindsym $mod+o splith
 bindsym $mod+v splitv
 

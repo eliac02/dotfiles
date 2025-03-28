@@ -45,7 +45,7 @@
             }
         },
         "battery": {
-            "interval": 60,
+            "interval": 1,
             "states": {
                 "full": 100,
                 "ok": 75,

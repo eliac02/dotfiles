@@ -14,7 +14,7 @@ convert $SCREENSHOT_PATH -blur 0x8 $SCREENSHOT_PATH
 swaymsg output * bg $SCREENSHOT_PATH fill
 
 # Entra in idle: metti il sistema in idle e blocca lo schermo con swaylock
-swaylock -f -u -i $SCREENSHOT_PATH &
+swaylock -C ~/.swaylock/config -i $SCREENSHOT_PATH &
 
 # Il sistema rimarrà bloccato indefinitamente finché non inserisci la password
 # Dopo il login o il risveglio, lo sfondo verrà ripristinato

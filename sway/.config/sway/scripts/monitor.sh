@@ -19,8 +19,8 @@ case $selected in
         swaymsg output "$EXTERNAL_SCREEN" enable position 0 0
         ;;
     entrambi)
-        swaymsg output "$LAPTOP_SCREEN" enable position 0 0
-        swaymsg output "$EXTERNAL_SCREEN" enable position 1920 0
+        swaymsg output "$LAPTOP_SCREEN" enable position 0 1080
+        swaymsg output "$EXTERNAL_SCREEN" enable position 0 0
         ;;
     laptop)
         swaymsg output "$LAPTOP_SCREEN" enable

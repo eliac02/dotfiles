@@ -17,7 +17,8 @@
             "pulseaudio",
             "bluetooth",
             "backlight",
-            "battery"
+            "battery",
+            "custom/power"
         ],
         "sway/workspaces": {
             "format": "{name}",
@@ -44,6 +45,11 @@
                 }
             }
         },
+        "custom/power": {
+            "format" : "<span size='20000'>⏻</span>",
+            "tooltip": false,
+            "on-click": "~/.dotfiles/sway/.config/sway/scripts/power.sh"
+    },
         "battery": {
             "interval": 1,
             "states": {
@@ -69,8 +75,9 @@
             "device": "intel_backlight",
             "format": "{percent}% {icon}",
             "format-icons": [
-                "",
-                ""
+                "",
+                "",
+                ""
             ],
             "interval": 1
         },
@@ -122,6 +129,7 @@
             "disk",
             "cpu",
             "memory",
+            "custom/gpu",
             "temperature",
             "network",
             "tray"
@@ -143,13 +151,39 @@
             "on-click": "nm-connection-editor"
         },
         "temperature": {
-            "critical-threshold": 80,
+            "critical-threshold": 70,
             "format-critical": "{temperatureC}°C ",
             "format": "{temperatureC}°C "
         },
+        "custom/gpu": {
+            "exec": "cat /sys/class/hwmon/hwmon4/device/gpu_busy_percent",
+            "return-type": "text",
+            "format": "  GPU: {}% {icon}",
+            "interval": 1,
+            "format-icons": [
+                "<span color='#69ff94'>▁</span>", // green
+                "<span color='#2aa9ff'>▂</span>", // blue
+                "<span color='#f8f8f2'>▃</span>", // white
+                "<span color='#f8f8f2'>▄</span>", // white
+                "<span color='#ffffa5'>▅</span>", // yellow
+                "<span color='#ffffa5'>▆</span>", // yellow
+                "<span color='#ff9977'>▇</span>", // orange
+                "<span color='#dd532e'>█</span>" // red
+            ]
+        },
         "memory": {
             "interval": 1,
-            "format": " RAM: {used:0.1f}GB/{total:0.1f}GB"
+            "format": " RAM: {used:0.1f}GB/{total:0.1f}GB {icon}",
+            "format-icons": [
+                "<span color='#69ff94'>▁</span>", // green
+                "<span color='#2aa9ff'>▂</span>", // blue
+                "<span color='#f8f8f2'>▃</span>", // white
+                "<span color='#f8f8f2'>▄</span>", // white
+                "<span color='#ffffa5'>▅</span>", // yellow
+                "<span color='#ffffa5'>▆</span>", // yellow
+                "<span color='#ff9977'>▇</span>", // orange
+                "<span color='#dd532e'>█</span>" // red
+            ]
         },
         "cpu": {
             "interval": 1,

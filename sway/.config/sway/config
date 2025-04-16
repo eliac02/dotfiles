@@ -140,6 +140,8 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 exec --no-startup-id waybar
 
+# Automounting USB drives
+exec --no-startup-id udiskie -t
 
 # target                 title     bg          text    indicator  border
 client.focused           $white    $less_black $white  $white     $white

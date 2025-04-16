@@ -37,40 +37,67 @@ return {
 
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostic = {
+							globals = { "vim" },
+						},
+						workspace = {
+							checkThirdParty = false,
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
+						telemetry = { enable = false },
+					},
+				},
 			})
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.jdtls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.sqlls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.html.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.cssls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.bashls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.jsonls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.intelephense.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.asm_lsp.setup({
-				capabilities = capabilities,
-			})
+
+			local servers = {
+				"gopls",
+				"pyright",
+				"jdtls",
+				"sqlls",
+				"html",
+				"cssls",
+				"bashls",
+				"jsonls",
+				"intelephense",
+				"clangd",
+				"asm_lsp",
+			}
+			-- lspconfig.gopls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.pyright.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.jdtls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.sqlls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.html.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.cssls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.bashls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.jsonls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.intelephense.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.clangd.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- lspconfig.asm_lsp.setup({
+			-- 	capabilities = capabilities,
+			-- })
 		end,
 	},
 }

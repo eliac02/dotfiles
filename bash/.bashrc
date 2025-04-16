@@ -12,6 +12,7 @@ alias jn='jupyter notebook'
 alias mars='java -jar ~/uni/archi2/Mars4_5.jar'
 alias dir='echo "This is not Windows, u bigol"'
 alias gcc='gcc -fpermissive'
+alias tlauncher='java -jar /home/elia/games/mc/TLauncher.jar'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

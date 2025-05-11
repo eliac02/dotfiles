@@ -24,7 +24,7 @@ return {
                 -- shfmt is for Bash
                 null_ls.builtins.formatting.shfmt,
                 -- sql_formatter is for SQL
-                null_ls.builtins.formatting.sql_formatter,
+                null_ls.builtins.formatting.sqlfmt,
                 -- phpcsf is for check code standard violations
                 null_ls.builtins.formatting.phpcsfixer,
                 -- phpcbf is for fixing PHP code violations 

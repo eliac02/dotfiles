@@ -20,7 +20,7 @@ exec swayidle -w \
 
 ### Output configuration
 
-output * bg /home/elia/Pictures/wallpaper/arch-pad.png fill
+output * bg /home/elia/Pictures/wallpaper/sfondo.png fill
 output eDP-1 resolution 1920x1080 position 0 1080
 output HDMI-A-1 resolution 1920x1080 position 0 0
 
